@@ -2,6 +2,8 @@
 #include "CCBot.h"
 #include "JSONTools.h"
 #include "Util.h"
+#include <stdio.h>
+#include <fstream>
 
 #ifdef SC2API
 
@@ -11,13 +13,13 @@
 int main(int argc, char* argv[]) 
 {
     sc2::Coordinator coordinator;
-    if (!coordinator.LoadSettings(argc, argv)) 
+    if (!coordinator.LoadSettings(3, argv))
     {
         std::cout << "Unable to find or parse settings." << std::endl;
         return 1;
     }
     
-    std::string config = JSONTools::ReadFile("BotConfig.txt");
+    std::string config = JSONTools::ReadFile("/home/jan/Documents/Starcraft/commandcenter/bin/BotConfig.txt");
     if (config.length() == 0)
     {
         std::cerr << "Config file could not be found, and is required for starting the bot\n";
@@ -25,7 +27,7 @@ int main(int argc, char* argv[])
         exit(-1);
     }
 
-    std::ifstream file("BotConfig.txt");
+    std::ifstream file("/home/jan/Documents/Starcraft/commandcenter/bin/BotConfig.txt");
     json j;
     file >> j;
 
@@ -68,6 +70,9 @@ int main(int argc, char* argv[])
     coordinator.SetStepSize(stepSize);
     coordinator.SetRealtime(false);
 
+
+    coordinator.SetRender(sc2::RenderSettings());
+
     coordinator.SetParticipants({
         sc2::CreateParticipant(Util::GetRaceFromString(botRaceString), &bot),
         sc2::CreateComputer(Util::GetRaceFromString(enemyRaceString), enemyDifficulty)
@@ -77,10 +82,19 @@ int main(int argc, char* argv[])
     coordinator.LaunchStarcraft();
     coordinator.StartGame(mapString);
 
+    //io Test
+   /* std::ofstream test;
+    test.open("example.txt");
+    test << "test 2.\n";
+    test << "test 1.\n";
+    test.close();*/
+
     // Step forward the game simulation.
+    int i = 0;
     while (true) 
     {
         coordinator.Update();
+        printf("%d\n", i++);
     }
 
     return 0;

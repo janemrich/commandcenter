@@ -36,6 +36,10 @@ void StrategyManager::onStart()
 void StrategyManager::onFrame()
 {
 
+    if (StrategyManager::attackConditionIsMet()) {
+    	printf("attackConditionIsMet");
+    	exit(0);
+    }
 }
 
 const Strategy & StrategyManager::getCurrentStrategy() const

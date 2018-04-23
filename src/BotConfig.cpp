@@ -6,7 +6,7 @@ BotConfig::BotConfig()
 {
     ConfigFileFound                     = true;
     ConfigFileParsed                    = true;
-    ConfigFileLocation                  = "BotConfig.txt";
+    ConfigFileLocation                  = "/home/jan/Documents/Starcraft/commandcenter/bin/BotConfig.txt";
     BotName                             = "UAlbertaBot";
     Authors                             = "Dave Churchill";
     PrintInfoOnStart                    = false;

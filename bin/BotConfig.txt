@@ -3,7 +3,7 @@
     {
         "BotName"                   : "CommandCenter",
         "Authors"                   : "David Churchill",
-        "PrintInfoOnStart"          : false
+        "PrintInfoOnStart"          : true
     },
 
     "BWAPI" : 
@@ -19,8 +19,8 @@
         "BotRace"                   : "Terran",
         "EnemyDifficulty"           : 2,
         "EnemyRace"                 : "Random",
-        "MapFile"                   : "InterloperLE.SC2Map",
-        "StepSize"                  : 1
+        "MapFile"                   : "BelShirVestigeLE.SC2Map",
+        "StepSize"                  : 5
     },
         
     "Micro" :
