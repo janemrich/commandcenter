@@ -10,7 +10,7 @@ BotConfig::BotConfig()
     BotName                             = "UAlbertaBot";
     Authors                             = "Dave Churchill";
     PrintInfoOnStart                    = false;
-    StrategyName                        = "Protoss_ZealotRush";
+    StrategyName                        = "Terran_MarineRush";
     ReadDir                             = "read/";
     WriteDir                            = "write/";
     UseEnemySpecificStrategy            = false;

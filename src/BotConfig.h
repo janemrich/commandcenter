@@ -23,6 +23,7 @@ public:
     bool UserInput;
     bool CompleteMapInformation;
     
+    std::string strategy;
     std::string StrategyName;
     std::string ReadDir;
     std::string WriteDir;

@@ -31,6 +31,7 @@ class CCBot
 
     std::vector<Unit>       m_allUnits;
     std::vector<CCPosition> m_baseLocations;
+    std::string				strategy;
 
     void setUnits();
 
@@ -64,6 +65,8 @@ public:
     CCRace GetPlayerRace(int player) const;
     CCPosition GetStartLocation() const;
 
+    void setStrategy(std::string strategy);
+    std::string getStrategyString();
     int GetCurrentFrame() const;
     int GetMinerals() const;
     int GetCurrentSupply() const;

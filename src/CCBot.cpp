@@ -174,6 +174,14 @@ WorkerManager & CCBot::Workers()
     return m_workers;
 }
 
+void CCBot::setStrategy(std::string strategy) {
+	this->strategy = strategy;
+}
+
+std::string CCBot::getStrategyString() {
+	return this->strategy;
+}
+
 int CCBot::GetCurrentSupply() const
 {
 #ifdef SC2API

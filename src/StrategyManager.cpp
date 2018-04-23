@@ -3,6 +3,7 @@
 #include "JSONTools.h"
 #include "Util.h"
 #include "MetaType.h"
+#include <stdio.h>
 
 Strategy::Strategy()
 {
@@ -30,7 +31,7 @@ StrategyManager::StrategyManager(CCBot & bot)
 
 void StrategyManager::onStart()
 {
-    readStrategyFile(m_bot.Config().ConfigFileLocation);
+    readStrategyFile(m_bot.getStrategyString());
 }
 
 void StrategyManager::onFrame()
@@ -102,14 +103,14 @@ void StrategyManager::onEnd(const bool isWinner)
 
 }
 
-void StrategyManager::readStrategyFile(const std::string & filename)
+void StrategyManager::readStrategyFile(const std::string & strategyString)
 {
     CCRace race = m_bot.GetPlayerRace(Players::Self);
     std::string ourRace = Util::GetStringFromRace(race);
 
-    std::ifstream file(filename);
     json j;
-    file >> j;
+    std::stringstream strategyStream(strategyString);
+    strategyStream >> j;
 
 #ifdef SC2API
     const char * strategyObject = "SC2API Strategy";
@@ -154,7 +155,6 @@ void StrategyManager::readStrategyFile(const std::string & filename)
                 }
             }
         }
-
         // Parse all the Strategies
         if (strategy.count("Strategies") && strategy["Strategies"].is_object())
         {

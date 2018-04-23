@@ -13,9 +13,13 @@
 int main(int argc, char* argv[]) 
 {
     sc2::Coordinator coordinator;
-    if (!coordinator.LoadSettings(3, argv))
+    if (!coordinator.LoadSettings(argc, argv))
     {
         std::cout << "Unable to find or parse settings." << std::endl;
+        return 1;
+    }
+    if (argc < 4) {
+        std::cout << "Unable to find strategy." << std::endl;
         return 1;
     }
     
@@ -62,6 +66,8 @@ int main(int argc, char* argv[])
 
     // Add the custom bot, it will control the players.
     CCBot bot;
+    std::string strategy = argv[3];
+    bot.setStrategy(strategy);
 
     
     // WARNING: Bot logic has not been thorougly tested on step sizes > 1
