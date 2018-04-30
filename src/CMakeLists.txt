@@ -1,4 +1,4 @@
-# All the source files for the bot.
+# All the source files for the bot. 
 file(GLOB BOT_SOURCES "*.cpp" "*.h" "*.hpp")
 
 # Enable compilation of the SC2 version of the bot.

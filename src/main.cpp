@@ -4,6 +4,7 @@
 #include "Util.h"
 #include <stdio.h>
 #include <fstream>
+#include <sstream>
 
 #ifdef SC2API
 
@@ -65,7 +66,13 @@ int main(int argc, char* argv[])
     }
 
     // Add the custom bot, it will control the players.
-    CCBot bot;
+
+    std::istringstream ss(argv[4]);
+    int x;
+    if (!(ss >> x))
+        std::cerr << "Invalid number " << argv[4] << '\n';
+
+    CCBot bot(x);
     std::string strategy = argv[3];
     bot.setStrategy(strategy);
 
@@ -76,9 +83,6 @@ int main(int argc, char* argv[])
     coordinator.SetStepSize(stepSize);
     coordinator.SetRealtime(false);
 
-
-    coordinator.SetRender(sc2::RenderSettings());
-
     coordinator.SetParticipants({
         sc2::CreateParticipant(Util::GetRaceFromString(botRaceString), &bot),
         sc2::CreateComputer(Util::GetRaceFromString(enemyRaceString), enemyDifficulty)
@@ -87,13 +91,6 @@ int main(int argc, char* argv[])
     // Start the game.
     coordinator.LaunchStarcraft();
     coordinator.StartGame(mapString);
-
-    //io Test
-   /* std::ofstream test;
-    test.open("example.txt");
-    test << "test 2.\n";
-    test << "test 1.\n";
-    test.close();*/
 
     // Step forward the game simulation.
     int i = 0;

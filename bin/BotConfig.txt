@@ -20,7 +20,7 @@
         "EnemyDifficulty"           : 2,
         "EnemyRace"                 : "Random",
         "MapFile"                   : "BelShirVestigeLE.SC2Map",
-        "StepSize"                  : 5
+        "StepSize"                  : 10
     },
         
     "Micro" :

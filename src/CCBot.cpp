@@ -1,7 +1,7 @@
 #include "CCBot.h"
 #include "Util.h"
 
-CCBot::CCBot()
+CCBot::CCBot(int dna)
     : m_map(*this)
     , m_bases(*this)
     , m_unitInfo(*this)
@@ -9,6 +9,7 @@ CCBot::CCBot()
     , m_gameCommander(*this)
     , m_strategy(*this)
     , m_techTree(*this)
+	, log(*this, dna)
 {
     
 }
@@ -70,6 +71,12 @@ void CCBot::OnStep()
 #ifdef SC2API
     Debug()->SendDebug();
 #endif
+}
+
+void CCBot::stop()
+{
+	log.onGameEnd();
+	exit(0);
 }
 
 void CCBot::setUnits()
@@ -180,6 +187,10 @@ void CCBot::setStrategy(std::string strategy) {
 
 std::string CCBot::getStrategyString() {
 	return this->strategy;
+}
+
+int CCBot::getDNA() {
+	return this->dna;
 }
 
 int CCBot::GetCurrentSupply() const

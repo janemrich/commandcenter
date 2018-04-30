@@ -38,8 +38,7 @@ void StrategyManager::onFrame()
 {
 
     if (StrategyManager::attackConditionIsMet()) {
-    	printf("attackConditionIsMet");
-    	exit(0);
+    	m_bot.stop();
     }
 }
 

@@ -13,6 +13,7 @@
 #include "TechTree.h"
 #include "MetaType.h"
 #include "Unit.h"
+#include "Log.h"
 
 #ifdef SC2API
 class CCBot : public sc2::Agent 
@@ -28,6 +29,8 @@ class CCBot
     BotConfig               m_config;
     TechTree                m_techTree;
     GameCommander           m_gameCommander;
+    Log						log;
+    int						dna;
 
     std::vector<Unit>       m_allUnits;
     std::vector<CCPosition> m_baseLocations;
@@ -42,7 +45,7 @@ class CCBot
 
 public:
 
-    CCBot();
+    CCBot(int dna);
 
 #ifdef SC2API
     void OnGameStart() override;
@@ -51,6 +54,7 @@ public:
     void OnGameStart();
     void OnStep();
 #endif
+    void stop();
 
           BotConfig & Config();
           WorkerManager & Workers();
@@ -67,6 +71,7 @@ public:
 
     void setStrategy(std::string strategy);
     std::string getStrategyString();
+    int getDNA();
     int GetCurrentFrame() const;
     int GetMinerals() const;
     int GetCurrentSupply() const;

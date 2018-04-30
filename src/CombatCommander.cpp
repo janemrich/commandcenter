@@ -10,7 +10,7 @@ const size_t DropPriority = 4;
 
 CombatCommander::CombatCommander(CCBot & bot)
     : m_bot(bot)
-    , m_squadData(bot)
+	, m_squadData(bot)
     , m_initialized(false)
     , m_attackStarted(false)
 {
