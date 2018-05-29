@@ -31,6 +31,7 @@ class CCBot
     GameCommander           m_gameCommander;
     Log						log;
     int						dna;
+    int						generation;
 
     std::vector<Unit>       m_allUnits;
     std::vector<CCPosition> m_baseLocations;
@@ -45,7 +46,7 @@ class CCBot
 
 public:
 
-    CCBot(int dna);
+    CCBot(int generation, int dna);
 
 #ifdef SC2API
     void OnGameStart() override;
@@ -72,6 +73,7 @@ public:
     void setStrategy(std::string strategy);
     std::string getStrategyString();
     int getDNA();
+    int getGeneration();
     int GetCurrentFrame() const;
     int GetMinerals() const;
     int GetCurrentSupply() const;

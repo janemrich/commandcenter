@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Common.h"
+
 class CCBot;
 
 class Log {
@@ -9,6 +11,7 @@ class Log {
 public:
 	Log(CCBot & bot, int dna);
 
+	void onGameStart();
 	void onGameEnd();
 };
 

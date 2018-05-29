@@ -71,8 +71,12 @@ int main(int argc, char* argv[])
     int x;
     if (!(ss >> x))
         std::cerr << "Invalid number " << argv[4] << '\n';
+    std::istringstream ss2(argv[5]);
+    int y;
+    if (!(ss2 >> y))
+        std::cerr << "Invalid number " << argv[5] << '\n';
 
-    CCBot bot(x);
+    CCBot bot(x, y);
     std::string strategy = argv[3];
     bot.setStrategy(strategy);
 

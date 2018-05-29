@@ -1,7 +1,7 @@
 #include "CCBot.h"
 #include "Util.h"
 
-CCBot::CCBot(int dna)
+CCBot::CCBot(int generation, int dna)
     : m_map(*this)
     , m_bases(*this)
     , m_unitInfo(*this)
@@ -10,6 +10,8 @@ CCBot::CCBot(int dna)
     , m_strategy(*this)
     , m_techTree(*this)
 	, log(*this, dna)
+	, dna(dna)
+	, generation(generation)
 {
     
 }
@@ -55,6 +57,7 @@ void CCBot::OnGameStart()
     m_workers.onStart();
 
     m_gameCommander.onStart();
+    log.onGameStart();
 }
 
 void CCBot::OnStep()
@@ -191,6 +194,10 @@ std::string CCBot::getStrategyString() {
 
 int CCBot::getDNA() {
 	return this->dna;
+}
+
+int CCBot::getGeneration() {
+	return this->generation;
 }
 
 int CCBot::GetCurrentSupply() const
