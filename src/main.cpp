@@ -68,17 +68,26 @@ int main(int argc, char* argv[])
     // Add the custom bot, it will control the players.
 
     std::istringstream ss(argv[4]);
-    int x;
+    int numberOfBots;
     if (!(ss >> x))
         std::cerr << "Invalid number " << argv[4] << '\n';
-    std::istringstream ss2(argv[5]);
-    int y;
-    if (!(ss2 >> y))
-        std::cerr << "Invalid number " << argv[5] << '\n';
+    std::istringstream ss2(argv[3]);
 
-    CCBot bot(x, y);
-    std::string strategy = argv[3];
-    bot.setStrategy(strategy);
+    std::vector<PlayerSetup>& participants
+    for (int i = 0; i < numberOfBots; i++) {
+        std::istringstream ss1(argv[4+2*i]);
+        int generation;
+        if (!(ss1 >> x))
+            std::cerr << "Invalid number " << argv[4+2*i] << '\n';
+        std::istringstream ss2(argv[5+2*i]);
+        int number;
+        if (!(ss2 >> y))
+            std::cerr << "Invalid number " << argv[4+2*i] << '\n';
+
+        CCBot bot(x, y);
+        std::string strategy = argv[3];
+        bot.setStrategy(strategy);
+    }
 
     
     // WARNING: Bot logic has not been thorougly tested on step sizes > 1
@@ -86,11 +95,14 @@ int main(int argc, char* argv[])
     //          The bot may crash or do unexpected things if its logic is not called every frame
     coordinator.SetStepSize(stepSize);
     coordinator.SetRealtime(false);
+    coordinator.SetMultithreaded(true);
 
     coordinator.SetParticipants({
         sc2::CreateParticipant(Util::GetRaceFromString(botRaceString), &bot),
         sc2::CreateComputer(Util::GetRaceFromString(enemyRaceString), enemyDifficulty)
     });
+
+    coordinator.
 
     // Start the game.
     coordinator.LaunchStarcraft();
