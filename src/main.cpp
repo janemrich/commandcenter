@@ -19,11 +19,12 @@ int main(int argc, char* argv[])
         std::cout << "Unable to find or parse settings." << std::endl;
         return 1;
     }
-    if (argc < 4) {
+    /*if (argc < 4) {
         std::cout << "Unable to find strategy." << std::endl;
         return 1;
-    }
-    
+    }*/
+
+
     std::string config = JSONTools::ReadFile("/home/jan/Documents/Starcraft/commandcenter/bin/BotConfig.txt");
     if (config.length() == 0)
     {
@@ -67,27 +68,18 @@ int main(int argc, char* argv[])
 
     // Add the custom bot, it will control the players.
 
-    std::istringstream ss(argv[4]);
-    int numberOfBots;
-    if (!(ss >> x))
-        std::cerr << "Invalid number " << argv[4] << '\n';
-    std::istringstream ss2(argv[3]);
+	std::istringstream ss1(argv[4]);
+	int generation;
+	if (!(ss1 >> generation))
+		std::cerr << "Invalid number " << argv[4] << '\n';
+	std::istringstream ss2(argv[5]);
+	int number;
+	if (!(ss2 >> number))
+		std::cerr << "Invalid number " << argv[5] << '\n';
 
-    std::vector<PlayerSetup>& participants
-    for (int i = 0; i < numberOfBots; i++) {
-        std::istringstream ss1(argv[4+2*i]);
-        int generation;
-        if (!(ss1 >> x))
-            std::cerr << "Invalid number " << argv[4+2*i] << '\n';
-        std::istringstream ss2(argv[5+2*i]);
-        int number;
-        if (!(ss2 >> y))
-            std::cerr << "Invalid number " << argv[4+2*i] << '\n';
-
-        CCBot bot(x, y);
-        std::string strategy = argv[3];
-        bot.setStrategy(strategy);
-    }
+	CCBot bot(generation, number, &coordinator);
+	std::string strategy = argv[3];
+	bot.setStrategy(strategy);
 
     
     // WARNING: Bot logic has not been thorougly tested on step sizes > 1
@@ -95,17 +87,16 @@ int main(int argc, char* argv[])
     //          The bot may crash or do unexpected things if its logic is not called every frame
     coordinator.SetStepSize(stepSize);
     coordinator.SetRealtime(false);
-    coordinator.SetMultithreaded(true);
+    //coordinator.SetMultithreaded(true);
 
     coordinator.SetParticipants({
         sc2::CreateParticipant(Util::GetRaceFromString(botRaceString), &bot),
         sc2::CreateComputer(Util::GetRaceFromString(enemyRaceString), enemyDifficulty)
     });
 
-    coordinator.
-
     // Start the game.
     coordinator.LaunchStarcraft();
+
     coordinator.StartGame(mapString);
 
     // Step forward the game simulation.

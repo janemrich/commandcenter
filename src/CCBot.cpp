@@ -1,7 +1,7 @@
 #include "CCBot.h"
 #include "Util.h"
 
-CCBot::CCBot(int generation, int dna)
+CCBot::CCBot(int generation, int dna, sc2::Coordinator * coordinator)
     : m_map(*this)
     , m_bases(*this)
     , m_unitInfo(*this)
@@ -12,6 +12,7 @@ CCBot::CCBot(int generation, int dna)
 	, log(*this, dna)
 	, dna(dna)
 	, generation(generation)
+	, coordinator(coordinator)
 {
     
 }
@@ -79,6 +80,7 @@ void CCBot::OnStep()
 void CCBot::stop()
 {
 	log.onGameEnd();
+	coordinator->LeaveGame();
 	exit(0);
 }
 

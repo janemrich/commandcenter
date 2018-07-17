@@ -15,7 +15,9 @@
 #include "Unit.h"
 #include "Log.h"
 
+
 #ifdef SC2API
+//class sc2::Coordinator;
 class CCBot : public sc2::Agent 
 #else
 class CCBot
@@ -32,6 +34,7 @@ class CCBot
     Log						log;
     int						dna;
     int						generation;
+    sc2::Coordinator *		coordinator;
 
     std::vector<Unit>       m_allUnits;
     std::vector<CCPosition> m_baseLocations;
@@ -46,7 +49,7 @@ class CCBot
 
 public:
 
-    CCBot(int generation, int dna);
+    CCBot(int generation, int dna, sc2::Coordinator * coordinator);
 
 #ifdef SC2API
     void OnGameStart() override;

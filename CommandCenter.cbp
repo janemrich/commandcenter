@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="CommandCenter"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/jan/Documents/Starcraft/commandcenter"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/jan/Documents/Starcraft/commandcenter"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/jan/Documents/Starcraft/commandcenter"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CommandCenter">
+				<Option output="/home/jan/Documents/Starcraft/commandcenter/bin/CommandCenter" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jan/Documents/Starcraft/commandcenter/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSC2API"/>
+					<Add directory="/opt/local/include"/>
+					<Add directory="/opt/local/include/sc2api"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/src/Makefile&quot;  VERBOSE=1 CommandCenter"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CommandCenter/fast">
+				<Option output="/home/jan/Documents/Starcraft/commandcenter/bin/CommandCenter" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jan/Documents/Starcraft/commandcenter/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSC2API"/>
+					<Add directory="/opt/local/include"/>
+					<Add directory="/opt/local/include/sc2api"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/src/Makefile&quot;  VERBOSE=1 CommandCenter/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/jan/Documents/Starcraft/commandcenter/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BaseLocation.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BaseLocation.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BaseLocationManager.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BaseLocationManager.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BotAssert.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BotAssert.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BotConfig.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BotConfig.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BuildOrder.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BuildOrder.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BuildOrderQueue.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BuildOrderQueue.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Building.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Building.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BuildingData.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BuildingData.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BuildingManager.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BuildingManager.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BuildingPlacer.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/BuildingPlacer.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/CCBot.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/CCBot.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/CombatCommander.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/CombatCommander.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Common.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Condition.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Condition.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/DistanceMap.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/DistanceMap.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/GameCommander.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/GameCommander.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/JSONTools.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/JSONTools.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Log.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Log.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/MapTools.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/MapTools.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/MeleeManager.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/MeleeManager.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/MetaType.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/MetaType.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/MicroManager.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/MicroManager.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/ProductionManager.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/ProductionManager.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/RangedManager.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/RangedManager.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/ScoutManager.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/ScoutManager.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Squad.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Squad.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/SquadData.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/SquadData.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/SquadOrder.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/SquadOrder.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/StrategyManager.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/StrategyManager.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/TechTree.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/TechTree.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Timer.hpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Unit.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Unit.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/UnitData.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/UnitData.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/UnitInfoManager.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/UnitInfoManager.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/UnitType.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/UnitType.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Util.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/Util.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/WorkerData.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/WorkerData.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/WorkerManager.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/WorkerManager.h">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/main.cpp">
+			<Option target="CommandCenter"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/cmake/FindSC2Api.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/jan/Documents/Starcraft/commandcenter/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
