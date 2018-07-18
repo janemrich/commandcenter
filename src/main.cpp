@@ -95,7 +95,9 @@ int main(int argc, char* argv[])
     });
 
     // Start the game.
-    coordinator.LaunchStarcraft();
+    //coordinator.LaunchStarcraft();
+
+    coordinator.Connect(8167 + (number % 7));
 
     coordinator.StartGame(mapString);
 
