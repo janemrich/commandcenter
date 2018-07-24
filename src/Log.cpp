@@ -2,36 +2,66 @@
 
 #include <iostream>
 #include <fstream>
+#include <sc2api/sc2_score.h>
 #include "CCBot.h"
 
-Log::Log(CCBot & bot, int dna)
-    : m_bot(bot), dna(dna)
-{
+Log::Log(CCBot &bot, int dna)
+        : m_bot(bot), dna(dna) {
 
 }
+
+using namespace std;
 
 void Log::onGameStart() {
-	//filename
-	std::ostringstream oss;
-	oss << "/home/jan/Documents/Starcraft/Log/" << m_bot.getGeneration() << "/" << dna << ".log";
-	std::string filename = oss.str();
-
-	//print strategy
-	std::ofstream logfile(filename);
-	logfile << m_bot.getStrategyString() << "\n";
+    ofstream ofs = openFile("log");
+    ofs << m_bot.getStrategyString() << "\n";
 }
+
+void Log::create(std::string unit) {
+    ofstream ofs = openFile("csv");
+
+    //write to log
+    sc2::ObservationInterface *obs = const_cast<sc2::ObservationInterface *>(m_bot.Observation());
+
+    ofs << (int) (m_bot.GetCurrentFrame() / 22.4)
+        << ","
+        << unit
+        << ","
+        << m_bot.GetCurrentSupply()
+        << ","
+        << m_bot.GetMaxSupply()
+        << ","
+        << m_bot.GetMinerals()
+        << ","
+        << obs->GetFoodWorkers()
+        << ","
+        << obs->GetArmyCount()
+        << endl;
+}
+
+void Log::onUpdate() {
+    int currentTime = (int) (m_bot.GetCurrentFrame()/22.4);
+    if (currentTime > timestamp) {
+        timestamp = currentTime;
+        create("");
+    }
+}
+
+std::ofstream Log::openFile(std::string ending) {
+    //filename
+    std::ostringstream oss;
+    oss << "/home/jan/Documents/Starcraft/Log/" << m_bot.getGeneration() << "/" << dna << "." << ending;
+    std::string filename = oss.str();
+
+    //open file
+    std::ofstream ofs;
+    ofs.open(filename.c_str(), std::ios_base::app);
+    return ofs;
+}
+
 void Log::onGameEnd() {
-	//filename
-	std::ostringstream oss;
-	oss << "/home/jan/Documents/Starcraft/Log/" << m_bot.getGeneration() << "/" << dna << ".log";
-	std::string filename = oss.str();
+    ofstream ofs = openFile("log");
 
-	//open file
-	std::ofstream ofs;
-	ofs.open(filename.c_str(), std::ios_base::app);
-
-	//write to log
-	ofs << m_bot.GetCurrentFrame() << "\n";
-    std::cout << "Game ended after: " << m_bot.GetCurrentFrame()<< " loops " << std::endl
-    		<< (int) m_bot.UnitInfo().getUnitTypeCount(Players::Self, UnitType::GetUnitTypeFromName("TERRAN_MARINE", m_bot), true)<< std::to_string(dna)<< dna;
+    //write to log
+    ofs << m_bot.GetCurrentFrame() << "\n";
 }

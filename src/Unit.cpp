@@ -333,6 +333,7 @@ void Unit::build(const UnitType & buildingType, CCTilePosition pos) const
     BOT_ASSERT(isValid(), "Unit is not valid");
 #ifdef SC2API
     m_bot->Actions()->UnitCommand(m_unit, m_bot->Data(buildingType).buildAbility, Util::GetPosition(pos));
+    m_bot->log.create(buildingType.getName());
 #else
     m_unit->build(buildingType.getAPIUnitType(), pos);
 #endif
@@ -353,6 +354,7 @@ void Unit::train(const UnitType & type) const
     BOT_ASSERT(isValid(), "Unit is not valid");
 #ifdef SC2API
     m_bot->Actions()->UnitCommand(m_unit, m_bot->Data(type).buildAbility);
+    m_bot->log.create(type.getName());
 #else
     m_unit->train(type.getAPIUnitType());
 #endif

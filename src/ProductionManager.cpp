@@ -33,7 +33,7 @@ void ProductionManager::onFrame()
     manageBuildOrderQueue();
 
     // TODO: if nothing is currently building, get a new goal from the strategy manager
-    // TODO: detect if there's a build order deadlock once per second
+    // TODO: detect if there's a build order deadlock once per timestamp
     // TODO: triggers for game things like cloaked units etc
 
     m_buildingManager.onFrame();

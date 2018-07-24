@@ -58,7 +58,6 @@ void CCBot::OnGameStart()
     m_workers.onStart();
 
     m_gameCommander.onStart();
-    log.onGameStart();
 }
 
 void CCBot::OnStep()
@@ -72,6 +71,8 @@ void CCBot::OnStep()
 
     m_gameCommander.onFrame();
 
+    if (this->Observation()->GetGameLoop() % 20 == 0) log.onUpdate();
+
 #ifdef SC2API
     Debug()->SendDebug();
 #endif
@@ -80,6 +81,7 @@ void CCBot::OnStep()
 void CCBot::stop()
 {
 	log.onGameEnd();
+    log.onUpdate();
 	coordinator->LeaveGame();
 	exit(0);
 }
@@ -188,6 +190,7 @@ WorkerManager & CCBot::Workers()
 
 void CCBot::setStrategy(std::string strategy) {
 	this->strategy = strategy;
+    log.onGameStart();
 }
 
 std::string CCBot::getStrategyString() {

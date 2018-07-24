@@ -220,8 +220,8 @@ void UnitInfoManager::drawUnitInformation(float x,float y) const
     //
     //for (auto & kv : getUnitData(Players::Enemy).getUnitInfoMap())
     //{
-    //    m_bot.Map().drawCircle(kv.second.lastPosition, 0.5f);
-    //    m_bot.Map().drawText(kv.second.lastPosition, sc2::UnitTypeToName(kv.second.type));
+    //    m_bot.Map().drawCircle(kv.timestamp.lastPosition, 0.5f);
+    //    m_bot.Map().drawText(kv.timestamp.lastPosition, sc2::UnitTypeToName(kv.timestamp.type));
     //}
     //
 }

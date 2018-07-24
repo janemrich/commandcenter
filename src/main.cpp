@@ -11,20 +11,25 @@
 #include "sc2utils/sc2_manage_process.h"
 #include "sc2api/sc2_api.h"
 
-int main(int argc, char* argv[]) 
+
+int main(int argc, char* argv[])
 {
+
+    bool CONNECT = true;
+
     sc2::Coordinator coordinator;
-    if (!coordinator.LoadSettings(argc, argv))
+    std::cout << "load settings";
+    if (!coordinator.LoadSettings(3, argv))
     {
         std::cout << "Unable to find or parse settings." << std::endl;
-        return 1;
+        return 3;
     }
     /*if (argc < 4) {
         std::cout << "Unable to find strategy." << std::endl;
         return 1;
     }*/
 
-
+    /*
     std::string config = JSONTools::ReadFile("/home/jan/Documents/Starcraft/commandcenter/bin/BotConfig.txt");
     if (config.length() == 0)
     {
@@ -36,7 +41,7 @@ int main(int argc, char* argv[])
     std::ifstream file("/home/jan/Documents/Starcraft/commandcenter/bin/BotConfig.txt");
     json j;
     file >> j;
-
+    */
     /*if (parsingFailed)
     {
         std::cerr << "Config file could not be parsed, and is required for starting the bot\n";
@@ -44,12 +49,12 @@ int main(int argc, char* argv[])
         exit(-1);
     }*/
 
-    std::string botRaceString;
-    std::string enemyRaceString;
-    std::string mapString;
-    int stepSize = 1;
-    sc2::Difficulty enemyDifficulty = sc2::Difficulty::Easy;
-
+    std::string botRaceString = "Terran";
+    std::string enemyRaceString = "Random";
+    std::string mapString = "BelShirVestigeLE.SC2Map";
+    int stepSize = 10;
+    sc2::Difficulty enemyDifficulty = sc2::Difficulty::VeryEasy;
+    /*
     if (j.count("SC2API") && j["SC2API"].is_object())
     {
         const json & info = j["SC2API"];
@@ -65,7 +70,7 @@ int main(int argc, char* argv[])
         std::cerr << "Please read the instructions and try again\n";
         exit(-1);
     }
-
+    */
     // Add the custom bot, it will control the players.
 
 	std::istringstream ss1(argv[4]);
@@ -76,6 +81,10 @@ int main(int argc, char* argv[])
 	int number;
 	if (!(ss2 >> number))
 		std::cerr << "Invalid number " << argv[5] << '\n';
+    std::istringstream ss3(argv[6]);
+    int thread;
+    if (!(ss3 >> thread))
+        std::cerr << "Invalid number " << argv[6] << '\n';
 
 	CCBot bot(generation, number, &coordinator);
 	std::string strategy = argv[3];
@@ -95,11 +104,18 @@ int main(int argc, char* argv[])
     });
 
     // Start the game.
-    //coordinator.LaunchStarcraft();
+    std::cerr << "connect / launch";
+    if (CONNECT) {
+        coordinator.Connect(8167 + thread);
+    } else {
+        coordinator.LaunchStarcraft();
+    }
 
-    coordinator.Connect(8167 + (number % 7));
+    std::cerr << "start game";
 
     coordinator.StartGame(mapString);
+
+    std::cout << "game started\n";
 
     // Step forward the game simulation.
     int i = 0;

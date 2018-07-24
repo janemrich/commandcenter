@@ -358,16 +358,16 @@ void TechTree::outputJSON(const std::string & filename) const
     std::string qcs = "\", ";
 
     std::vector<std::pair<int, UnitTypeData>> allData;
-    for (auto & kv : m_unitTypeData) { allData.push_back({kv.first, kv.second}); }
-    for (auto & kv : m_upgradeData) { allData.push_back({kv.first, kv.second}); }
+    for (auto & kv : m_unitTypeData) { allData.push_back({kv.first, kv.timestamp}); }
+    for (auto & kv : m_upgradeData) { allData.push_back({kv.first, kv.timestamp}); }
 
     for (auto & kv : allData)
     {
-        std::string name( kv.second.isUnit ? m_bot.Observation()->GetUnitTypeData()[kv.first].name : m_bot.Observation()->GetUpgradeData()[kv.first].name);
+        std::string name( kv.timestamp.isUnit ? m_bot.Observation()->GetUnitTypeData()[kv.first].name : m_bot.Observation()->GetUpgradeData()[kv.first].name);
         if (name.find("Flying") != std::string::npos) { continue; }
         if (name.find("Lowered") != std::string::npos) { continue; }
 
-        auto & data = kv.second;
+        auto & data = kv.timestamp;
                
         out << "    [";
         out << q << name << qcs;

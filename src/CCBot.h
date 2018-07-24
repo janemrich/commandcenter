@@ -31,7 +31,6 @@ class CCBot
     BotConfig               m_config;
     TechTree                m_techTree;
     GameCommander           m_gameCommander;
-    Log						log;
     int						dna;
     int						generation;
     sc2::Coordinator *		coordinator;
@@ -48,6 +47,8 @@ class CCBot
 #endif
 
 public:
+
+    Log						log;
 
     CCBot(int generation, int dna, sc2::Coordinator * coordinator);
 

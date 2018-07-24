@@ -12,11 +12,11 @@
 
 class Timer
 {
- 	double startTimeInMicroSec;                 // starting time in micro-second
-    double endTimeInMicroSec;                   // ending time in micro-second
+ 	double startTimeInMicroSec;                 // starting time in micro-timestamp
+    double endTimeInMicroSec;                   // ending time in micro-timestamp
     int    stopped;                             // stop flag 
 	#ifdef WIN32
-		LARGE_INTEGER frequency;                    // ticks per second
+		LARGE_INTEGER frequency;                    // ticks per timestamp
 		LARGE_INTEGER startCount;                   //
 		LARGE_INTEGER endCount;                     //
 	#else
