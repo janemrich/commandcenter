@@ -38,6 +38,7 @@ class CCBot
     std::vector<Unit>       m_allUnits;
     std::vector<CCPosition> m_baseLocations;
     std::string				strategy;
+    std::string             location;
 
     void setUnits();
 
@@ -50,7 +51,7 @@ public:
 
     Log						log;
 
-    CCBot(int generation, int dna, sc2::Coordinator * coordinator);
+    CCBot(int generation, int dna, sc2::Coordinator * coordinator, std::string location);
 
 #ifdef SC2API
     void OnGameStart() override;
@@ -76,6 +77,7 @@ public:
 
     void setStrategy(std::string strategy);
     std::string getStrategyString();
+    std::string getLocation();
     int getDNA();
     int getGeneration();
     int GetCurrentFrame() const;

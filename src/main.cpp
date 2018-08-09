@@ -11,6 +11,7 @@
 #include "sc2utils/sc2_manage_process.h"
 #include "sc2api/sc2_api.h"
 
+using namespace std;
 
 int main(int argc, char* argv[])
 {
@@ -76,18 +77,22 @@ int main(int argc, char* argv[])
 	std::istringstream ss1(argv[4]);
 	int generation;
 	if (!(ss1 >> generation))
-		std::cerr << "Invalid number " << argv[4] << '\n';
-	std::istringstream ss2(argv[5]);
+		cerr << "Invalid number " << argv[4] << '\n';
+	istringstream ss2(argv[5]);
 	int number;
 	if (!(ss2 >> number))
-		std::cerr << "Invalid number " << argv[5] << '\n';
-    std::istringstream ss3(argv[6]);
+		cerr << "Invalid number " << argv[5] << '\n';
+    istringstream ss3(argv[6]);
     int thread;
     if (!(ss3 >> thread))
-        std::cerr << "Invalid number " << argv[6] << '\n';
+        cerr << "Invalid number " << argv[6] << '\n';
+    istringstream ss4(argv[7]);
+    string location;
+    if (!(ss4 >> location))
+        cerr << "Invalid location " << argv[7] << '\n';
 
-	CCBot bot(generation, number, &coordinator);
-	std::string strategy = argv[3];
+	CCBot bot(generation, number, &coordinator, location);
+	string strategy = argv[3];
 	bot.setStrategy(strategy);
 
     
@@ -104,18 +109,18 @@ int main(int argc, char* argv[])
     });
 
     // Start the game.
-    std::cerr << "connect / launch";
+    cerr << "connect / launch";
     if (CONNECT) {
         coordinator.Connect(8167 + thread);
     } else {
         coordinator.LaunchStarcraft();
     }
 
-    std::cerr << "start game";
+    cerr << "start game";
 
     coordinator.StartGame(mapString);
 
-    std::cout << "game started\n";
+    cout << "game started\n";
 
     // Step forward the game simulation.
     int i = 0;

@@ -50,7 +50,7 @@ void Log::onUpdate() {
 std::ofstream Log::openFile(std::string ending) {
     //filename
     std::ostringstream oss;
-    oss << "/home/jan/Documents/Starcraft/Log/" << m_bot.getGeneration() << "/" << dna << "." << ending;
+    oss << m_bot.getLocation() << "/"   << m_bot.getGeneration() << "/" << dna << "." << ending;
     std::string filename = oss.str();
 
     //open file

@@ -1,7 +1,7 @@
 #include "CCBot.h"
 #include "Util.h"
 
-CCBot::CCBot(int generation, int dna, sc2::Coordinator * coordinator)
+CCBot::CCBot(int generation, int dna, sc2::Coordinator * coordinator, std::string location)
     : m_map(*this)
     , m_bases(*this)
     , m_unitInfo(*this)
@@ -13,6 +13,7 @@ CCBot::CCBot(int generation, int dna, sc2::Coordinator * coordinator)
 	, dna(dna)
 	, generation(generation)
 	, coordinator(coordinator)
+	, location(location)
 {
     
 }
@@ -203,6 +204,10 @@ int CCBot::getDNA() {
 
 int CCBot::getGeneration() {
 	return this->generation;
+}
+
+std::string CCBot::getLocation() {
+    return this->location;
 }
 
 int CCBot::GetCurrentSupply() const
